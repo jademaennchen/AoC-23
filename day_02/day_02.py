@@ -1,4 +1,4 @@
-#AoC Day 01
+#AoC Day 02
 
 
 
@@ -33,15 +33,15 @@ def calc_sum_of_powers_of_minimum_cube_games(games):
     return running_sum
 
 def calc_game_power(game):
-    min_red, min_green, min_blue = 0, 0, 0
+    max_red, max_green, max_blue = 0, 0, 0
     for reveal in game:
-        if(reveal[1] == "red"): min_red = max(min_red, int(reveal[0]))
-        elif(reveal[1] == "green"): min_green = max(min_green, int(reveal[0]))
-        elif(reveal[1] == "blue"): min_blue = max(min_blue, int(reveal[0]))
-    return min_red * min_green * min_blue
+        if(reveal[1] == "red"): max_red = max(max_red, int(reveal[0]))
+        elif(reveal[1] == "green"): max_green = max(max_green, int(reveal[0]))
+        elif(reveal[1] == "blue"): max_blue = max(max_blue, int(reveal[0]))
+    return max_red * max_green * max_blue
 
 
-
+#main
 if __name__ == '__main__':
     games = input_from_file("day_02/input.txt")
     print(calc_sum_of_valid_games(games))

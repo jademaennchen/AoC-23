@@ -41,7 +41,7 @@ def find_last_number(string):
     return "0"
 
 
-
+#main
 if __name__ == '__main__':
     lines = input_from_file("day_01/input.txt")
     print(calc_total_sum(lines))
