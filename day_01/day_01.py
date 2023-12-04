@@ -10,7 +10,7 @@ def input_from_file(file):
     return lines
 
 
-#part 1
+#part_1
 def calc_total_sum(lines):
     running_sum = 0
     for cur in lines:
@@ -19,7 +19,7 @@ def calc_total_sum(lines):
     return running_sum
 
 
-#part 2
+#part_2
 def calc_total_sum_with_string_numbers(lines):
     running_sum = 0
     for cur in lines:

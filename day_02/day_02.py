@@ -12,7 +12,7 @@ def input_from_file(file):
     return lines
 
 
-#part 1
+#part_1
 def calc_sum_of_valid_games(games):
     running_sum = 0
     for i, game in enumerate(games):
@@ -25,7 +25,7 @@ def is_valid_game(game):
     return True
 
 
-#part 2
+#part_2
 def calc_sum_of_powers_of_minimum_cube_games(games):
     running_sum = 0
     for game in games:
