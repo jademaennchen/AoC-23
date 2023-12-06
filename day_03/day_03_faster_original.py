@@ -1,4 +1,4 @@
-#AoC Day 03
+#AoC day_03
 import numpy as np
 
 

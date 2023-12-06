@@ -1,4 +1,4 @@
-#AoC Day 04
+#AoC day_04
 
 
 
