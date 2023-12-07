@@ -16,22 +16,16 @@ def input_from_file(file):
 def calc_total_points(cards):
     running_sum = 0
     for card in cards:
-        wins = calc_number_of_wins(card)
+        wins = sum(1 for number in card[1] if number in card[0])
         if wins > 0: running_sum += pow(2, wins - 1)
     return running_sum
-
-def calc_number_of_wins(game):
-    wins = 0
-    for number in game[1]:
-        if number in game[0]: wins += 1
-    return wins
 
 
 #part_2
 def calc_total_cards(cards):
     count = [1 for _ in range(len(cards))]
     for i, card in enumerate(cards):
-        wins = calc_number_of_wins(card)
+        wins = sum(1 for number in card[1] if number in card[0])
         for j in range(i + 1, i + wins + 1):
             count[j] += count[i] * 1
     return sum(count)
