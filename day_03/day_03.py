@@ -5,7 +5,7 @@ import numpy as np
 
 #input
 def input_from_file(file):
-    lines = np.array([['' for _ in range(840)] for _ in range(140)])
+    lines = np.array([['' for _ in range(140)] for _ in range(140)])
     with open(file) as f:
         for i, line in enumerate(f.readlines()):
             lines[:, i] = list(line.strip())
