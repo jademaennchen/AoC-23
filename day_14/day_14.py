@@ -1,6 +1,5 @@
 #AoC day_14
-import copy
-
+import copy as c
 
 
 #input
@@ -48,8 +47,7 @@ def find_loop_length(platform):
                     platform[i][rock:rocks[j + 1] - 1] = ['O'] * rolling_stones + ['.'] * (rocks[j + 1] - rock - rolling_stones - 1)
             platform = list(map(list, zip(*platform[::-1])))
         if str(platform) in dict: return (count + 1, platform), dict[str(platform)], dict
-        dict[str(platform)] = count + 1, platform
-        dict = copy.deepcopy(dict)
+        dict[str(platform)] = count + 1, c.deepcopy(platform)
 
 
 #main
