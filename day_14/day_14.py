@@ -2,6 +2,7 @@
 import copy as c
 
 
+
 #input
 def input_from_file(file):
     lines = []
