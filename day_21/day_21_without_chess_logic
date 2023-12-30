@@ -1,0 +1,36 @@
+#AoC day_21
+import collections as c
+
+
+
+#input
+def input_from_file(file):
+    lines = []
+    with open(file) as f:
+        for line in f.readlines():
+            lines.append(list(line.strip()))
+        f.close()
+    return lines, len(lines)
+
+
+#part_1
+def calc_number_of_end_positions(garden, start):
+    positions, saved, vectors, end_positions = c.deque(), {start: True}, ((1, 0), (-1, 0), (0, 1), (0, -1)), 0
+    positions.append(start)
+    while positions:
+        y, x, steps = positions.pop()
+        if steps == 0:
+            end_positions += 1
+            continue
+        for d_y, d_x in vectors:
+            new_y, new_x, new_entry = y+d_y, x+d_x, (y+d_y, x+d_x, steps - 1)
+            if len(garden) > new_y >= 0 and len(garden) > new_x >= 0 and garden[new_y][new_x] != '#' and new_entry not in saved:
+                saved[new_entry] = True
+                positions.appendleft(new_entry)
+    return end_positions
+
+
+#main
+if __name__ == '__main__':
+    garden, dim = input_from_file("day_21/input.txt")
+    print(calc_number_of_end_positions(garden, (dim // 2, dim // 2, 64)))

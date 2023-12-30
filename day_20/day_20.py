@@ -1,5 +1,5 @@
 #AoC day_20
-from collections import deque; import math
+import collections as c, math
 
 
 
@@ -25,7 +25,7 @@ def calc_pulses_or_minimal_presses_for_activation(modules, final_module, part2):
     presses, low_pulses, high_pulses = 1000 if not part2 else 10000, 0, 0
     origins = {name: None for name in modules[final_module][2].keys()}
     for i in range(presses):
-        cycle = deque()
+        cycle = c.deque()
         cycle.append(['broadcaster', False, None])
         while cycle:
             dest, pulse, origin = cycle.pop()
