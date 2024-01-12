@@ -34,11 +34,11 @@ def calc_disintegrable_bricks(snapshot, bricks, part2):
                     bricks[c][3].append(sub_c)
     if not part2: return sum([1 for brick in bricks.keys() if all(len(bricks[sup_bricks][3]) > 1 for sup_bricks in bricks[brick][2])])
     for brick in bricks.keys():
-        cur_layer, old_len = [new_brick for new_brick in bricks[brick][2] if len(bricks[new_brick][3]) == 1], 0
-        while len(cur_layer) > old_len:
-            old_len = len(cur_layer)
-            for sup_brick in cur_layer:
-                cur_layer.extend([new_brick for new_brick in bricks[sup_brick][2] if all(cur_bricks in cur_layer for cur_bricks in bricks[new_brick][3]) and new_brick not in cur_layer])
+        saved_bricks, old_len = [new_brick for new_brick in bricks[brick][2] if len(bricks[new_brick][3]) == 1], 0
+        while len(saved_bricks) > old_len:
+            old_len = len(saved_bricks)
+            for sup_brick in saved_bricks:
+                saved_bricks.extend([new_brick for new_brick in bricks[sup_brick][2] if all(cur_bricks in saved_bricks for cur_bricks in bricks[new_brick][3]) and new_brick not in saved_bricks])
         running_sum += old_len
     return running_sum
 
